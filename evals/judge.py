@@ -47,7 +47,7 @@ NEGATIVE_SWAP = {
 }
 CLAIM = "This {cls} case should be handled under the cited policy section."
 FIELDS = ["id", "kind", "classification", "row_type", "claim", "citation_id", "passage",
-          "judge_label", "reviewer_label", "reviewer"]
+          "judge_label", "automated_label", "automated_reviewer", "human_label", "human_reviewer"]
 
 
 def judge(classification: str, passage: str) -> str:
@@ -75,7 +75,7 @@ def _row(sc: dict, cls: str, row_type: str, cid: str, chunks: dict) -> dict:
     return {"id": sc["id"] + suffix, "kind": sc["kind"], "classification": cls, "row_type": row_type,
             "claim": CLAIM.format(cls=cls.replace("_", " ")), "citation_id": cid,
             "passage": passage, "judge_label": judge(cls, passage),
-            "reviewer_label": "", "reviewer": ""}
+            "automated_label": "", "automated_reviewer": "", "human_label": "", "human_reviewer": ""}
 
 
 def export(seed: int = 5) -> None:
@@ -110,19 +110,28 @@ def export(seed: int = 5) -> None:
 
 
 def kappa() -> None:
-    rows = list(csv.DictReader(open(LABELS, encoding="utf-8")))
-    labelled = [r for r in rows if r["reviewer_label"] in VALID and r["judge_label"] in VALID]
-    if len(labelled) < len(rows):
-        print(f"{len(rows) - len(labelled)} rows still need a reviewer_label; kappa not reported.")
-        return
-    reviewers = sorted({r["reviewer"] for r in rows})
-    try:
-        k = cohens_kappa([r["reviewer_label"] for r in labelled], [r["judge_label"] for r in labelled])
-    except ValueError as e:
-        print(f"{e} (over {len(labelled)} cases)")
-        return
-    print(f"Cohen's kappa over {len(labelled)} cases (reviewer: {', '.join(reviewers)}): {k:.3f}")
+    """Agreement of the rule judge with (a) the automated reviewer and (b) human reviewers, where present.
 
+    Human agreement is the one that counts for a claim about the judge. The automated reviewer is reported
+    separately so the two are never confused.
+    """
+    rows = list(csv.DictReader(open(LABELS, encoding="utf-8")))
+    total = len(rows)
+    for name, col in (("automated reviewer", "automated_label"), ("human reviewer", "human_label")):
+        labelled = [r for r in rows if r[col] in VALID and r["judge_label"] in VALID]
+        if not labelled:
+            print(f"{name}: no labels yet (0 of {total}); kappa not reported.")
+            continue
+        if len(labelled) < total:
+            print(f"{name}: {len(labelled)} of {total} rows labelled; kappa not reported until all are.")
+            continue
+        who = sorted({r[col.replace("_label", "_reviewer")] for r in rows})
+        try:
+            k = cohens_kappa([r[col] for r in labelled], [r["judge_label"] for r in labelled])
+        except ValueError as e:
+            print(f"{name}: {e} (over {len(labelled)} cases)")
+            continue
+        print(f"Cohen's kappa, judge vs {name} over {len(labelled)} cases ({', '.join(who)}): {k:.3f}")
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
