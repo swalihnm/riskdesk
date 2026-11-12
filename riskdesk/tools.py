@@ -147,3 +147,10 @@ def search_policy(s: Session, query: str, k: int = 5) -> list[dict]:
     flagged = [h for h in hits if screen(h["text"])["flagged"]]
     return [{"id": h["id"], "heading": h["heading"], "text": h["text"][:600],
              "quarantined": h in flagged} for h in hits]
+
+
+@audited("pla_test")
+def pla_test(s: Session, desk: str) -> dict:
+    from riskdesk.engine.pla import pla_test as _pla
+    r = _pla(positions_by_desk(s.book, desk), s.market)
+    return {"desk": desk, **r}

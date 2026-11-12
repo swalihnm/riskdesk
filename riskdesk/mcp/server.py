@@ -77,6 +77,13 @@ def backtest(desk: str = "") -> dict:
 
 
 @mcp.tool()
+def pla_test(desk: str) -> dict:
+    """P&L attribution test for a desk (MAR32.42): Spearman correlation and KS statistic between hypothetical
+    and risk-theoretical P&L, with the green, amber or red zone."""
+    return T.pla_test(session(), desk)
+
+
+@mcp.tool()
 def search_policy(query: str, k: int = 5) -> list[dict]:
     """Hybrid search over policy and regulatory text. Returns IDs, headings and passages."""
     return T.search_policy(session(), query, k)
