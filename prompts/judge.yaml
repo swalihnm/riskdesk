@@ -1,11 +1,17 @@
-version: "0.1.0"
+version: "1.0.0"
 name: judge
 owner: market-risk-ai
-purpose: Rubric for an LLM judge of citation support. Not yet used in CI; must be validated on 50 human labels first.
+purpose: "Decide whether a cited policy passage supports a claim about how a breach case should be handled. Advisory only: its accuracy must be measured against human labels before any result is reported."
 changelog:
-  - "0.1.0: rubric drafted. Kappa against human labels not yet measured."
+  - "1.0.0: first version of the LLM judge rubric. Agreement with human labels not yet measured."
+
+system: |
+  You check whether a cited policy passage supports a claim about how a breach case should be handled.
+  Answer SUPPORTED only if the passage states how cases of that kind should be handled.
+  Answer NOT_SUPPORTED if the passage is about a different kind of case, describes a past incident,
+  gives only a general definition, or merely mentions a related word.
+  Respond with JSON only: {"label": "SUPPORTED" or "NOT_SUPPORTED", "reason": "one sentence"}.
+
 template: |
-  You are checking whether a cited policy passage supports a sentence in a breach note.
-  Answer SUPPORTED or NOT_SUPPORTED, then give one sentence of reason.
-  SENTENCE: {claim}
+  CLAIM: {claim}
   PASSAGE: {passage}
