@@ -1,0 +1,16 @@
+# Local Postgres with pgvector. The default retrieval index is in memory; this is the production target.
+# Langfuse self-hosting is not included here: its stack needs several services and is set up separately.
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: riskdesk
+      POSTGRES_PASSWORD: riskdesk_local_only
+      POSTGRES_DB: riskdesk
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

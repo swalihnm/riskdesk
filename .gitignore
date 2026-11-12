@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+scratch/
+data/cache/
+data/audit/
+data/traces/
+data/eval/
+data/approvals.json
+data/limits.json.bak
+*.bak
+.venv/
+
