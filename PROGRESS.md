@@ -1,6 +1,8 @@
 # RiskDesk progress
 
-**Completed: 93%** (last updated 12 November 2026, during the job-description upgrade)
+**Completed: 94%** (last updated 12 November 2026)
+
+Repository: https://github.com/swalihnm/riskdesk (public, branch `main`, 10 commits pushed). Commits carry no AI attribution.
 
 Update cadence: a background timer wakes me every 10 minutes and I refresh this figure. The timer only runs while a session is active, and it does not survive a closed session.
 
@@ -46,7 +48,7 @@ Percentage = share of the plan that is built and checked. Items that need your l
 | pgvector retrieval backend | Built, tested | Same top-5 sections as the in-memory dense index on all 59 questions. 3 tests against the live container. |
 | Langfuse tracing | Not built | |
 | LLM judge | Not built | |
-| Multi-agent (challenger agent) | Not built | |
+| Multi-agent (challenger agent) | Built, tested | Second agent with its own read-only tools; can add escalations, never remove one. 15 tests. Trial on the local model in progress. |
 | PLA test (MAR32) | Not built | |
 | Hosted deployment | Not built | Needs your account. |
 
@@ -87,6 +89,8 @@ Tool-calling agent (`qwen2.5:0.5b`), one case: called `limit_status` and `data_c
 - Update the model-risk pack and the resume bullets with the new measured results only.
 
 ## Log
+- 12 Nov: challenger agent built and tested (85 tests pass). Trial on 12 scenarios with `qwen2.5:3b` and the full 100-scenario 3B run both still in progress. Nothing from this round is committed yet.
+- 12 Nov (10-minute refresh): repository created and pushed to GitHub (`main`). Full 100-scenario run with `qwen2.5:3b` still in progress; its results will be committed after it finishes.
 - 12 Nov (10-minute refresh): function-calling agent with `qwen2.5:3b` on the first 12 scenarios: 10 of 12 notes accepted; 2 fell back to the template because the note did not name the classification; 0 unsupported figures shipped; 7% of drafted figures were unsupported and blocked. Prompt bumped to 2.1.0 to require the classification in words. Full 100-scenario run in progress; still 91%.
 - 12 Nov: earlier rounds (engine, knowledge base, guardrails, graph, golden set, MCP, UI, judge, model-risk pack, launch materials). See git-style history in this file's earlier versions.
 - 12 Nov: job-description gap round: retrieval ablation, function-calling agent, schema output, async, spec document, content and citation checks, approval lock. Progress 93% after the pgvector backend was built and tested.

@@ -33,6 +33,7 @@ Manual pain points the agent is meant to reduce: finding the drivers (M5), findi
 | M7 | `policy_lookup` | classification | up to two policy citations | Citations must be policy text, not incident logs |
 | M7 | `draft_report` | engine facts, citations; optionally tool calls | note text | Drafter cannot compute figures; content check; template fallback |
 | M7 | `validate` | note, every tool output | grounding result, redacted text | Blocks any figure no tool returned and any policy ID not returned by lookup or a tool |
+| M8 (second review) | `challenge` | desk and metric only, not the first classification | independent classification, top driver and confidence, from read-only tools | Can add an escalation, never remove one. Disagreement, confidence below 0.5, or a failed challenge escalates |
 | M8 | `queue_review` / `human_review` | report or no-report payload | pause for a named reviewer | Escalated when confidence is below 0.5 (top-two margin below 1.25), or on data or limit cases |
 | M9 | `queue_approval` / `approval_gate` | validated report; any limit proposal | pause for a named approver | Limit proposals are never applied by the agent; reviewer must be on the allowlist |
 | M10 | `audit`, `trace` | every node and tool call | hash-chained log; JSONL trace | Tamper-evident |
