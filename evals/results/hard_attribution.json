@@ -1,0 +1,70 @@
+{
+  "summary": {
+    "n_cases": 5,
+    "breach_on_target_desk": 1.0,
+    "root_cause_accuracy": 1.0,
+    "picked_distractor": 0.0
+  },
+  "rows": [
+    {
+      "desk": "DESK_EQ",
+      "target": "EQ_ALPHA",
+      "distractor": "EQ_GAMMA",
+      "intensity": 3.0,
+      "status": "breach",
+      "predicted_desk": "DESK_EQ",
+      "top_driver": "EQ_ALPHA",
+      "top_is_intended": true,
+      "root_cause_correct": true,
+      "root_cause_is_distractor": false
+    },
+    {
+      "desk": "DESK_EQ",
+      "target": "EQ_BETA",
+      "distractor": "EQ_GAMMA",
+      "intensity": 12.0,
+      "status": "breach",
+      "predicted_desk": "DESK_EQ",
+      "top_driver": "EQ_BETA",
+      "top_is_intended": true,
+      "root_cause_correct": true,
+      "root_cause_is_distractor": false
+    },
+    {
+      "desk": "DESK_VOL",
+      "target": "EQ_EPSILON",
+      "distractor": "EQ_ZETA",
+      "intensity": 6.0,
+      "status": "breach",
+      "predicted_desk": "DESK_VOL",
+      "top_driver": "EQ_EPSILON",
+      "top_is_intended": true,
+      "root_cause_correct": true,
+      "root_cause_is_distractor": false
+    },
+    {
+      "desk": "DESK_VOL",
+      "target": "EQ_DELTA",
+      "distractor": "EQ_ZETA",
+      "intensity": 8.0,
+      "status": "breach",
+      "predicted_desk": "DESK_VOL",
+      "top_driver": "EQ_DELTA",
+      "top_is_intended": true,
+      "root_cause_correct": true,
+      "root_cause_is_distractor": false
+    },
+    {
+      "desk": "DESK_FX",
+      "target": "FX_EURUSD",
+      "distractor": "FX_GBPUSD",
+      "intensity": 6.0,
+      "status": "breach",
+      "predicted_desk": "DESK_FX",
+      "top_driver": "FX_EURUSD",
+      "top_is_intended": true,
+      "root_cause_correct": true,
+      "root_cause_is_distractor": false
+    }
+  ]
+}
