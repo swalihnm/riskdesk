@@ -137,6 +137,7 @@ def main() -> None:
         "run_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "prompt": {"name": prompt["name"], "version": prompt["version"]},
         "drafter_env": os.environ.get("RISKDESK_DRAFTER", "template"),
+        "data_source": "synthetic" if os.environ.get("RISKDESK_DATA", "real").lower() == "synthetic" else "real",
         "model": os.environ.get("RISKDESK_OLLAMA_MODEL", "qwen2.5:0.5b") if os.environ.get("RISKDESK_DRAFTER") in ("ollama", "tools") else None,
         "summary": summary,
         "rows": rows,
@@ -146,12 +147,13 @@ def main() -> None:
     challenger_tag = ""
     if os.environ.get("RISKDESK_CHALLENGER", "off").lower() in ("on", "1", "true"):
         challenger_tag = "_challenger-p" + load_prompt("challenger")["version"]
-    tag = run["drafter_env"] + ("" if run["drafter_env"] == "template" else "_" + model_tag) + challenger_tag + ("" if not args.limit else f"_first{args.limit}")
+    data_tag = "" if run["data_source"] == "real" else "_synthetic"
+    tag = run["drafter_env"] + ("" if run["drafter_env"] == "template" else "_" + model_tag) + challenger_tag + data_tag + ("" if not args.limit else f"_first{args.limit}")
     with open(os.path.join(RESULTS_DIR, f"latest_{tag}.json"), "w", encoding="utf-8") as f:
         json.dump(run, f, indent=2, default=str)
     if not args.limit:
         with open(os.path.join(RESULTS_DIR, "history.jsonl"), "a", encoding="utf-8") as f:
-            f.write(json.dumps({k: run[k] for k in ("run_at", "prompt", "drafter_env", "summary")},
+            f.write(json.dumps({k: run[k] for k in ("run_at", "prompt", "drafter_env", "data_source", "summary")},
                                default=str) + "\n")
     print(json.dumps(summary, indent=2, default=str))
 
