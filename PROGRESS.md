@@ -1,6 +1,6 @@
 # RiskDesk progress
 
-**Completed: 95%** (last updated 12 November 2026)
+**Completed: 96%** (last updated 12 November 2026)
 
 Repository: https://github.com/swalihnm/riskdesk (public, branch `main`, 10 commits pushed). Commits carry no AI attribution.
 
@@ -47,9 +47,9 @@ Percentage = share of the plan that is built and checked. Items that need your l
 | docker-compose (Postgres + pgvector) | Running | Container up; pgvector extension in use. |
 | pgvector retrieval backend | Built, tested | Same top-5 sections as the in-memory dense index on all 59 questions. 3 tests against the live container. |
 | Langfuse tracing | Not built | |
-| LLM judge | Not built | |
-| Multi-agent (challenger agent) | Built, tested | Second agent with its own read-only tools; can add escalations, never remove one. 15 tests. Trial on the local model in progress. |
-| PLA test (MAR32) | Not built | |
+| LLM judge | Built, measured against automated labels | Rubric 1.0.0 with qwen2.5:3b. Human agreement not computed until human labels exist. |
+| Multi-agent (challenger agent) | Built, tested, trial pending for 1.1.0 | Second agent with its own read-only tools; can add escalations, never remove one. 15 tests. Trial on the local model in progress. |
+| PLA test (MAR32.42) | Built, tested | Spearman and KS per desk, with zones. All desks green on this synthetic history; the linear model fits one-day moves closely. |
 | Hosted deployment | Not built | Needs your account. |
 
 ## Retrieval ablation (paraphrased set, 59 questions)
@@ -89,6 +89,7 @@ Tool-calling agent (`qwen2.5:0.5b`), one case: called `limit_status` and `data_c
 - Update the model-risk pack and the resume bullets with the new measured results only.
 
 ## Log
+- 12 Nov: PLA test built and tested (MAR32.42) and added to the report. LLM judge built with its rubric. README and monitoring plan updated. 96%. Pending runs: challenger 1.1.0 trial, full 3B run, LLM judge run.
 - 12 Nov: real-data sources tested from this machine (FRED, ECB and CBOE VIX reachable; Yahoo rate-limited; Stooq now serves a verification page). Recommendation written in the conversation; no real-data code yet.
 - 12 Nov: monitoring dashboard added (Monitoring tab). Judge labels split into automated and human columns. Labelling guide added.
 - 12 Nov: challenger trial on 12 scenarios with prompt 1.0.0: 6 of 12 disagreements, all false alarms. Prompt 1.1.0 tightened the rules; re-run in progress.
