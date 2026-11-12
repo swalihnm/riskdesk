@@ -1,0 +1,622 @@
+{
+  "n_v2": 59,
+  "n_v1": 40,
+  "results": {
+    "section": {
+      "bm25": {
+        "v2": {
+          "n": 59,
+          "recall@5": 0.8305084745762712,
+          "mrr@10": 0.7526230831315577,
+          "ndcg@10": 0.7956335198906753
+        },
+        "v2_misses": [
+          {
+            "q": "Under what conditions does an automated investigation go to a person for resolution?",
+            "expected": "escalation_matrix#human-review-queue-for-agent-cases",
+            "got": [
+              "market_risk_reference#stress-testing",
+              "regulatory_summaries#audit-trail-expectations",
+              "regulatory_summaries#human-oversight-of-automated-decisions",
+              "escalation_matrix#documentation",
+              "regulatory_summaries#pra-ss1-23-overview"
+            ]
+          },
+          {
+            "q": "How fast must a faulty or late quote be reported to whoever owns the feed?",
+            "expected": "escalation_matrix#data-incidents",
+            "got": [
+              "limit_policy#model-and-methodology-changes",
+              "limit_policy#breach-response",
+              "regulatory_summaries#basel-market-risk-framework-summary",
+              "escalation_matrix#level-1-desk-head",
+              "regulatory_summaries#human-oversight-of-automated-decisions"
+            ]
+          },
+          {
+            "q": "How does the historical approach revalue a book without assuming any distribution?",
+            "expected": "market_risk_reference#historical-simulation",
+            "got": [
+              "market_risk_reference#stress-testing",
+              "market_risk_reference#kupiec-proportion-of-failures-test",
+              "market_risk_reference#greeks",
+              "market_risk_reference#monte-carlo-var",
+              "regulatory_summaries#pra-ss1-23-independent-validation"
+            ]
+          },
+          {
+            "q": "Why might a normal-distribution risk estimate miss losses on a book full of options?",
+            "expected": "market_risk_reference#parametric-delta-normal-var",
+            "got": [
+              "market_risk_reference#kupiec-proportion-of-failures-test",
+              "regulatory_summaries#audit-trail-expectations",
+              "market_risk_reference#monte-carlo-var",
+              "escalation_matrix#level-3-head-of-market-risk",
+              "limit_policy#vega-limit"
+            ]
+          },
+          {
+            "q": "Who must be separate from the model developers when a model is tested?",
+            "expected": "regulatory_summaries#pra-ss1-23-independent-validation",
+            "got": [
+              "regulatory_summaries#audit-trail-expectations",
+              "limit_policy#model-and-methodology-changes",
+              "regulatory_summaries#sr-26-2-governance-expectations",
+              "regulatory_summaries#basel-market-risk-framework-summary",
+              "limit_policy#breach-response"
+            ]
+          },
+          {
+            "q": "What signals should trigger a re-test of a model after it goes live?",
+            "expected": "regulatory_summaries#pra-ss1-23-ongoing-monitoring",
+            "got": [
+              "regulatory_summaries#pra-ss1-23-independent-validation",
+              "market_risk_reference#stress-testing",
+              "regulatory_summaries#pra-ss1-23-model-inventory-and-tiering",
+              "regulatory_summaries#audit-trail-expectations",
+              "market_risk_reference#kupiec-proportion-of-failures-test"
+            ]
+          },
+          {
+            "q": "Can an agent apply a new limit value on its own?",
+            "expected": "limit_policy#limit-calibration",
+            "got": [
+              "limit_policy#hard-limits-and-warning-levels",
+              "escalation_matrix#human-review-queue-for-agent-cases",
+              "market_risk_reference#value-at-risk-definition",
+              "regulatory_summaries#audit-trail-expectations",
+              "market_risk_reference#kupiec-proportion-of-failures-test"
+            ]
+          },
+          {
+            "q": "What controls must a live AI tool have when it touches risk decisions?",
+            "expected": "regulatory_summaries#human-oversight-of-automated-decisions",
+            "got": [
+              "regulatory_summaries#sr-26-2-model-definition-and-scope",
+              "regulatory_summaries#pra-ss1-23-model-inventory-and-tiering",
+              "regulatory_summaries#audit-trail-expectations",
+              "limit_policy#breach-response",
+              "limit_policy#model-and-methodology-changes"
+            ]
+          },
+          {
+            "q": "Who may allow a limit to stay exceeded temporarily?",
+            "expected": "escalation_matrix#level-3-head-of-market-risk",
+            "got": [
+              "regulatory_summaries#audit-trail-expectations",
+              "limit_policy#limit-calibration",
+              "market_risk_reference#value-at-risk-definition",
+              "regulatory_summaries#pra-ss1-23-overview",
+              "regulatory_summaries#sr-26-2-governance-expectations"
+            ]
+          },
+          {
+            "q": "What happened in incident 12?",
+            "expected": "incident_logs#inc-0012-late-breach-notification-to-desk-head",
+            "got": [
+              "incident_logs#inc-0022-duplicate-trade-booked-twice",
+              "market_risk_reference#stress-testing",
+              "regulatory_summaries#audit-trail-expectations",
+              "incident_logs#inc-0032-agent-draft-cited-wrong-policy-section",
+              "incident_logs#inc-0002-bad-equity-tick-on-cash-position"
+            ]
+          }
+        ],
+        "v1": {
+          "n": 40,
+          "recall@5": 1.0,
+          "mrr@10": 0.95,
+          "ndcg@10": 0.9630929753571458
+        }
+      },
+      "dense": {
+        "v2": {
+          "n": 59,
+          "recall@5": 0.9661016949152542,
+          "mrr@10": 0.8728813559322034,
+          "ndcg@10": 0.8968899707627154
+        },
+        "v2_misses": [
+          {
+            "q": "What was the outcome of incident INC-0007?",
+            "expected": "incident_logs#inc-0007-stress-scenario-not-refreshed",
+            "got": [
+              "incident_logs#inc-0028-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0012-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0004-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0002-bad-equity-tick-on-cash-position",
+              "incident_logs#inc-0020-late-breach-notification-to-desk-head"
+            ]
+          },
+          {
+            "q": "What is recorded for incident INC-0033?",
+            "expected": "incident_logs#inc-0033-stale-fx-fixing-used-for-desk-fx-revaluation",
+            "got": [
+              "incident_logs#inc-0012-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0044-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0028-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0004-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0020-late-breach-notification-to-desk-head"
+            ]
+          }
+        ],
+        "v1": {
+          "n": 40,
+          "recall@5": 0.95,
+          "mrr@10": 0.8629761904761905,
+          "ndcg@10": 0.8958290385462531
+        }
+      },
+      "hybrid": {
+        "v2": {
+          "n": 59,
+          "recall@5": 0.9830508474576272,
+          "mrr@10": 0.857909604519774,
+          "ndcg@10": 0.8892281525912452
+        },
+        "v2_misses": [
+          {
+            "q": "What happened in incident 12?",
+            "expected": "incident_logs#inc-0012-late-breach-notification-to-desk-head",
+            "got": [
+              "market_risk_reference#stress-testing",
+              "incident_logs#inc-0002-bad-equity-tick-on-cash-position",
+              "incident_logs#inc-0032-agent-draft-cited-wrong-policy-section",
+              "incident_logs#inc-0022-duplicate-trade-booked-twice",
+              "incident_logs#inc-0006-duplicate-trade-booked-twice"
+            ]
+          }
+        ],
+        "v1": {
+          "n": 40,
+          "recall@5": 1.0,
+          "mrr@10": 0.9425000000000001,
+          "ndcg@10": 0.9569910516987228
+        }
+      },
+      "charngram": {
+        "v2": {
+          "n": 59,
+          "recall@5": 0.864406779661017,
+          "mrr@10": 0.7895480225988701,
+          "ndcg@10": 0.8165825047820868
+        },
+        "v2_misses": [
+          {
+            "q": "Why might a normal-distribution risk estimate miss losses on a book full of options?",
+            "expected": "market_risk_reference#parametric-delta-normal-var",
+            "got": [
+              "market_risk_reference#kupiec-proportion-of-failures-test",
+              "regulatory_summaries#human-oversight-of-automated-decisions",
+              "incident_logs#inc-0011-limit-typo-in-configuration",
+              "incident_logs#inc-0035-limit-typo-in-configuration",
+              "incident_logs#inc-0040-agent-draft-cited-wrong-policy-section"
+            ]
+          },
+          {
+            "q": "Who must be separate from the model developers when a model is tested?",
+            "expected": "regulatory_summaries#pra-ss1-23-independent-validation",
+            "got": [
+              "limit_policy#model-and-methodology-changes",
+              "regulatory_summaries#pra-ss1-23-model-inventory-and-tiering",
+              "regulatory_summaries#basel-market-risk-framework-summary",
+              "regulatory_summaries#pra-ss1-23-principles",
+              "market_risk_reference#kupiec-proportion-of-failures-test"
+            ]
+          },
+          {
+            "q": "What signals should trigger a re-test of a model after it goes live?",
+            "expected": "regulatory_summaries#pra-ss1-23-ongoing-monitoring",
+            "got": [
+              "regulatory_summaries#pra-ss1-23-model-inventory-and-tiering",
+              "regulatory_summaries#audit-trail-expectations",
+              "market_risk_reference#stress-testing",
+              "regulatory_summaries#basel-market-risk-framework-summary",
+              "regulatory_summaries#sr-26-2-model-definition-and-scope"
+            ]
+          },
+          {
+            "q": "Which approach to VaR assumes returns follow a bell curve?",
+            "expected": "market_risk_reference#parametric-delta-normal-var",
+            "got": [
+              "escalation_matrix#level-3-head-of-market-risk",
+              "market_risk_reference#stress-testing",
+              "limit_policy#breach-response",
+              "limit_policy#limit-calibration",
+              "regulatory_summaries#human-oversight-of-automated-decisions"
+            ]
+          },
+          {
+            "q": "What was the outcome of incident INC-0007?",
+            "expected": "incident_logs#inc-0007-stress-scenario-not-refreshed",
+            "got": [
+              "regulatory_summaries#pra-ss1-23-overview",
+              "regulatory_summaries#pra-ss1-23-independent-validation",
+              "market_risk_reference#expected-shortfall",
+              "escalation_matrix#human-review-queue-for-agent-cases",
+              "regulatory_summaries#human-oversight-of-automated-decisions"
+            ]
+          },
+          {
+            "q": "What happened in incident 12?",
+            "expected": "incident_logs#inc-0012-late-breach-notification-to-desk-head",
+            "got": [
+              "regulatory_summaries#pra-ss1-23-overview",
+              "incident_logs#inc-0022-duplicate-trade-booked-twice",
+              "incident_logs#inc-0032-agent-draft-cited-wrong-policy-section",
+              "regulatory_summaries#audit-trail-expectations",
+              "regulatory_summaries#pra-ss1-23-principles"
+            ]
+          },
+          {
+            "q": "Describe incident INC-0020.",
+            "expected": "incident_logs#inc-0020-late-breach-notification-to-desk-head",
+            "got": [
+              "incident_logs#inc-0024-agent-draft-cited-wrong-policy-section",
+              "regulatory_summaries#pra-ss1-23-principles",
+              "incident_logs#inc-0048-agent-draft-cited-wrong-policy-section",
+              "incident_logs#inc-0040-agent-draft-cited-wrong-policy-section",
+              "incident_logs#inc-0032-agent-draft-cited-wrong-policy-section"
+            ]
+          },
+          {
+            "q": "What is recorded for incident INC-0033?",
+            "expected": "incident_logs#inc-0033-stale-fx-fixing-used-for-desk-fx-revaluation",
+            "got": [
+              "escalation_matrix#data-incidents",
+              "market_risk_reference#parametric-delta-normal-var",
+              "incident_logs#inc-0037-vol-surface-gap-on-single-name",
+              "incident_logs#inc-0030-duplicate-trade-booked-twice",
+              "incident_logs#inc-0038-duplicate-trade-booked-twice"
+            ]
+          }
+        ],
+        "v1": {
+          "n": 40,
+          "recall@5": 0.975,
+          "mrr@10": 0.9098214285714287,
+          "ndcg@10": 0.9321932226423139
+        }
+      }
+    },
+    "window_60w_overlap20": {
+      "bm25": {
+        "v2": {
+          "n": 59,
+          "recall@5": 0.8305084745762712,
+          "mrr@10": 0.7547417271993543,
+          "ndcg@10": 0.8009803822090775
+        },
+        "v2_misses": [
+          {
+            "q": "Under what conditions does an automated investigation go to a person for resolution?",
+            "expected": "escalation_matrix#human-review-queue-for-agent-cases",
+            "got": [
+              "regulatory_summaries#audit-trail-expectations",
+              "market_risk_reference#stress-testing",
+              "regulatory_summaries#human-oversight-of-automated-decisions",
+              "regulatory_summaries#pra-ss1-23-overview",
+              "escalation_matrix#documentation"
+            ]
+          },
+          {
+            "q": "How fast must a faulty or late quote be reported to whoever owns the feed?",
+            "expected": "escalation_matrix#data-incidents",
+            "got": [
+              "limit_policy#model-and-methodology-changes",
+              "escalation_matrix#human-review-queue-for-agent-cases",
+              "escalation_matrix#level-1-desk-head",
+              "regulatory_summaries#basel-market-risk-framework-summary",
+              "limit_policy#breach-response"
+            ]
+          },
+          {
+            "q": "How does the historical approach revalue a book without assuming any distribution?",
+            "expected": "market_risk_reference#historical-simulation",
+            "got": [
+              "market_risk_reference#stress-testing",
+              "regulatory_summaries#basel-market-risk-framework-summary",
+              "market_risk_reference#kupiec-proportion-of-failures-test",
+              "market_risk_reference#greeks",
+              "market_risk_reference#monte-carlo-var"
+            ]
+          },
+          {
+            "q": "Why might a normal-distribution risk estimate miss losses on a book full of options?",
+            "expected": "market_risk_reference#parametric-delta-normal-var",
+            "got": [
+              "market_risk_reference#kupiec-proportion-of-failures-test",
+              "market_risk_reference#monte-carlo-var",
+              "regulatory_summaries#audit-trail-expectations",
+              "escalation_matrix#level-3-head-of-market-risk",
+              "limit_policy#vega-limit"
+            ]
+          },
+          {
+            "q": "Who must be separate from the model developers when a model is tested?",
+            "expected": "regulatory_summaries#pra-ss1-23-independent-validation",
+            "got": [
+              "regulatory_summaries#audit-trail-expectations",
+              "regulatory_summaries#sr-26-2-governance-expectations",
+              "limit_policy#model-and-methodology-changes",
+              "regulatory_summaries#basel-market-risk-framework-summary",
+              "limit_policy#breach-response"
+            ]
+          },
+          {
+            "q": "What signals should trigger a re-test of a model after it goes live?",
+            "expected": "regulatory_summaries#pra-ss1-23-ongoing-monitoring",
+            "got": [
+              "regulatory_summaries#pra-ss1-23-independent-validation",
+              "market_risk_reference#stress-testing",
+              "regulatory_summaries#pra-ss1-23-model-inventory-and-tiering",
+              "regulatory_summaries#audit-trail-expectations",
+              "market_risk_reference#kupiec-proportion-of-failures-test"
+            ]
+          },
+          {
+            "q": "Can an agent apply a new limit value on its own?",
+            "expected": "limit_policy#limit-calibration",
+            "got": [
+              "regulatory_summaries#sr-26-2-model-definition-and-scope",
+              "escalation_matrix#human-review-queue-for-agent-cases",
+              "limit_policy#hard-limits-and-warning-levels",
+              "market_risk_reference#value-at-risk-definition",
+              "regulatory_summaries#audit-trail-expectations"
+            ]
+          },
+          {
+            "q": "What controls must a live AI tool have when it touches risk decisions?",
+            "expected": "regulatory_summaries#human-oversight-of-automated-decisions",
+            "got": [
+              "regulatory_summaries#sr-26-2-model-definition-and-scope",
+              "regulatory_summaries#pra-ss1-23-model-inventory-and-tiering",
+              "regulatory_summaries#audit-trail-expectations",
+              "limit_policy#breach-response",
+              "limit_policy#model-and-methodology-changes"
+            ]
+          },
+          {
+            "q": "Who may allow a limit to stay exceeded temporarily?",
+            "expected": "escalation_matrix#level-3-head-of-market-risk",
+            "got": [
+              "regulatory_summaries#audit-trail-expectations",
+              "limit_policy#limit-calibration",
+              "market_risk_reference#value-at-risk-definition",
+              "regulatory_summaries#pra-ss1-23-overview",
+              "regulatory_summaries#sr-26-2-governance-expectations"
+            ]
+          },
+          {
+            "q": "What happened in incident 12?",
+            "expected": "incident_logs#inc-0012-late-breach-notification-to-desk-head",
+            "got": [
+              "incident_logs#inc-0022-duplicate-trade-booked-twice",
+              "market_risk_reference#stress-testing",
+              "limit_policy#data-quality-before-market-conclusions",
+              "incident_logs#inc-0032-agent-draft-cited-wrong-policy-section",
+              "incident_logs#inc-0002-bad-equity-tick-on-cash-position"
+            ]
+          }
+        ],
+        "v1": {
+          "n": 40,
+          "recall@5": 1.0,
+          "mrr@10": 0.95,
+          "ndcg@10": 0.9630929753571458
+        }
+      },
+      "dense": {
+        "v2": {
+          "n": 59,
+          "recall@5": 0.9661016949152542,
+          "mrr@10": 0.8601694915254238,
+          "ndcg@10": 0.8872404208995525
+        },
+        "v2_misses": [
+          {
+            "q": "What was the outcome of incident INC-0007?",
+            "expected": "incident_logs#inc-0007-stress-scenario-not-refreshed",
+            "got": [
+              "incident_logs#inc-0028-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0012-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0004-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0002-bad-equity-tick-on-cash-position",
+              "incident_logs#inc-0020-late-breach-notification-to-desk-head"
+            ]
+          },
+          {
+            "q": "What is recorded for incident INC-0033?",
+            "expected": "incident_logs#inc-0033-stale-fx-fixing-used-for-desk-fx-revaluation",
+            "got": [
+              "incident_logs#inc-0012-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0044-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0028-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0004-late-breach-notification-to-desk-head",
+              "incident_logs#inc-0020-late-breach-notification-to-desk-head"
+            ]
+          }
+        ],
+        "v1": {
+          "n": 40,
+          "recall@5": 0.95,
+          "mrr@10": 0.8504761904761905,
+          "ndcg@10": 0.8866022823855395
+        }
+      },
+      "hybrid": {
+        "v2": {
+          "n": 59,
+          "recall@5": 0.9491525423728814,
+          "mrr@10": 0.864406779661017,
+          "ndcg@10": 0.8975202320636726
+        },
+        "v2_misses": [
+          {
+            "q": "Who must be separate from the model developers when a model is tested?",
+            "expected": "regulatory_summaries#pra-ss1-23-independent-validation",
+            "got": [
+              "regulatory_summaries#sr-26-2-governance-expectations",
+              "limit_policy#model-and-methodology-changes",
+              "regulatory_summaries#pra-ss1-23-principles",
+              "regulatory_summaries#audit-trail-expectations",
+              "escalation_matrix#human-review-queue-for-agent-cases"
+            ]
+          },
+          {
+            "q": "What was the outcome of incident INC-0007?",
+            "expected": "incident_logs#inc-0007-stress-scenario-not-refreshed",
+            "got": [
+              "incident_logs#inc-0002-bad-equity-tick-on-cash-position",
+              "incident_logs#inc-0050-bad-equity-tick-on-cash-position",
+              "incident_logs#inc-0042-bad-equity-tick-on-cash-position",
+              "incident_logs#inc-0010-bad-equity-tick-on-cash-position",
+              "incident_logs#inc-0018-bad-equity-tick-on-cash-position"
+            ]
+          },
+          {
+            "q": "What happened in incident 12?",
+            "expected": "incident_logs#inc-0012-late-breach-notification-to-desk-head",
+            "got": [
+              "market_risk_reference#stress-testing",
+              "limit_policy#data-quality-before-market-conclusions",
+              "incident_logs#inc-0002-bad-equity-tick-on-cash-position",
+              "incident_logs#inc-0032-agent-draft-cited-wrong-policy-section",
+              "incident_logs#inc-0022-duplicate-trade-booked-twice"
+            ]
+          }
+        ],
+        "v1": {
+          "n": 40,
+          "recall@5": 1.0,
+          "mrr@10": 0.9175000000000001,
+          "ndcg@10": 0.9385375393772957
+        }
+      },
+      "charngram": {
+        "v2": {
+          "n": 59,
+          "recall@5": 0.864406779661017,
+          "mrr@10": 0.769774011299435,
+          "ndcg@10": 0.8018525006053319
+        },
+        "v2_misses": [
+          {
+            "q": "Why might a normal-distribution risk estimate miss losses on a book full of options?",
+            "expected": "market_risk_reference#parametric-delta-normal-var",
+            "got": [
+              "market_risk_reference#kupiec-proportion-of-failures-test",
+              "regulatory_summaries#human-oversight-of-automated-decisions",
+              "incident_logs#inc-0011-limit-typo-in-configuration",
+              "incident_logs#inc-0035-limit-typo-in-configuration",
+              "incident_logs#inc-0040-agent-draft-cited-wrong-policy-section"
+            ]
+          },
+          {
+            "q": "Who must be separate from the model developers when a model is tested?",
+            "expected": "regulatory_summaries#pra-ss1-23-independent-validation",
+            "got": [
+              "limit_policy#model-and-methodology-changes",
+              "regulatory_summaries#pra-ss1-23-model-inventory-and-tiering",
+              "regulatory_summaries#basel-market-risk-framework-summary",
+              "regulatory_summaries#pra-ss1-23-principles",
+              "market_risk_reference#kupiec-proportion-of-failures-test"
+            ]
+          },
+          {
+            "q": "What signals should trigger a re-test of a model after it goes live?",
+            "expected": "regulatory_summaries#pra-ss1-23-ongoing-monitoring",
+            "got": [
+              "regulatory_summaries#pra-ss1-23-model-inventory-and-tiering",
+              "regulatory_summaries#audit-trail-expectations",
+              "regulatory_summaries#basel-market-risk-framework-summary",
+              "market_risk_reference#stress-testing",
+              "regulatory_summaries#pra-ss1-23-independent-validation"
+            ]
+          },
+          {
+            "q": "Which approach to VaR assumes returns follow a bell curve?",
+            "expected": "market_risk_reference#parametric-delta-normal-var",
+            "got": [
+              "escalation_matrix#level-3-head-of-market-risk",
+              "market_risk_reference#stress-testing",
+              "limit_policy#breach-response",
+              "limit_policy#limit-calibration",
+              "regulatory_summaries#sr-26-2-overview"
+            ]
+          },
+          {
+            "q": "What was the outcome of incident INC-0007?",
+            "expected": "incident_logs#inc-0007-stress-scenario-not-refreshed",
+            "got": [
+              "regulatory_summaries#pra-ss1-23-overview",
+              "regulatory_summaries#pra-ss1-23-independent-validation",
+              "market_risk_reference#expected-shortfall",
+              "regulatory_summaries#human-oversight-of-automated-decisions",
+              "escalation_matrix#human-review-queue-for-agent-cases"
+            ]
+          },
+          {
+            "q": "What happened in incident 12?",
+            "expected": "incident_logs#inc-0012-late-breach-notification-to-desk-head",
+            "got": [
+              "regulatory_summaries#pra-ss1-23-overview",
+              "incident_logs#inc-0022-duplicate-trade-booked-twice",
+              "incident_logs#inc-0032-agent-draft-cited-wrong-policy-section",
+              "regulatory_summaries#audit-trail-expectations",
+              "limit_policy#data-quality-before-market-conclusions"
+            ]
+          },
+          {
+            "q": "Describe incident INC-0020.",
+            "expected": "incident_logs#inc-0020-late-breach-notification-to-desk-head",
+            "got": [
+              "incident_logs#inc-0024-agent-draft-cited-wrong-policy-section",
+              "regulatory_summaries#pra-ss1-23-principles",
+              "incident_logs#inc-0048-agent-draft-cited-wrong-policy-section",
+              "incident_logs#inc-0040-agent-draft-cited-wrong-policy-section",
+              "incident_logs#inc-0032-agent-draft-cited-wrong-policy-section"
+            ]
+          },
+          {
+            "q": "What is recorded for incident INC-0033?",
+            "expected": "incident_logs#inc-0033-stale-fx-fixing-used-for-desk-fx-revaluation",
+            "got": [
+              "escalation_matrix#data-incidents",
+              "market_risk_reference#parametric-delta-normal-var",
+              "limit_policy#data-quality-before-market-conclusions",
+              "incident_logs#inc-0037-vol-surface-gap-on-single-name",
+              "incident_logs#inc-0030-duplicate-trade-booked-twice"
+            ]
+          }
+        ],
+        "v1": {
+          "n": 40,
+          "recall@5": 0.975,
+          "mrr@10": 0.8931547619047618,
+          "ndcg@10": 0.9196932226423138
+        }
+      }
+    }
+  }
+}

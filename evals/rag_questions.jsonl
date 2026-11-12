@@ -1,0 +1,40 @@
+{"q": "What hard limits does each desk carry?", "chunk": "limit_policy#hard-limits-and-warning-levels"}
+{"q": "At what utilisation does a warning appear?", "chunk": "limit_policy#hard-limits-and-warning-levels"}
+{"q": "What must happen the same day a desk breaches?", "chunk": "limit_policy#breach-response"}
+{"q": "How is a spike in price tested before calling it a market move?", "chunk": "limit_policy#data-quality-before-market-conclusions"}
+{"q": "What threshold makes a hard limit a calibration error?", "chunk": "limit_policy#limit-calibration"}
+{"q": "Who approves a change to a limit?", "chunk": "limit_policy#limit-calibration"}
+{"q": "How is the stress limit applied?", "chunk": "limit_policy#stress-limit"}
+{"q": "What does the vega limit measure?", "chunk": "limit_policy#vega-limit"}
+{"q": "Does changing a VaR window count as a model change?", "chunk": "limit_policy#model-and-methodology-changes"}
+{"q": "Who gets an agent case when the top two drivers are close?", "chunk": "escalation_matrix#human-review-queue-for-agent-cases"}
+{"q": "When should a breach go to the Head of Market Risk?", "chunk": "escalation_matrix#level-3-head-of-market-risk"}
+{"q": "How quickly must a failed price check reach the data owner?", "chunk": "escalation_matrix#data-incidents"}
+{"q": "What is the escalation step for a same-day breach?", "chunk": "escalation_matrix#level-2-market-risk-manager"}
+{"q": "How long are escalation records kept?", "chunk": "escalation_matrix#documentation"}
+{"q": "What does desk head notification require for a warning?", "chunk": "escalation_matrix#level-1-desk-head"}
+{"q": "Why does Expected Shortfall matter beyond VaR?", "chunk": "market_risk_reference#expected-shortfall"}
+{"q": "What does historical simulation use to reprice the portfolio?", "chunk": "market_risk_reference#historical-simulation"}
+{"q": "Why can delta-normal VaR understate option book risk?", "chunk": "market_risk_reference#parametric-delta-normal-var"}
+{"q": "How are Monte Carlo shocks made correlated?", "chunk": "market_risk_reference#monte-carlo-var"}
+{"q": "How do component VaR contributions add up?", "chunk": "market_risk_reference#component-and-marginal-var"}
+{"q": "Which Greek measures the sensitivity to implied volatility?", "chunk": "market_risk_reference#greeks"}
+{"q": "What does a stress test answer that VaR does not?", "chunk": "market_risk_reference#stress-testing"}
+{"q": "How many exceptions put a 250-day 99% backtest in the yellow zone?", "chunk": "market_risk_reference#var-backtesting"}
+{"q": "What distribution does the Kupiec statistic follow?", "chunk": "market_risk_reference#kupiec-proportion-of-failures-test"}
+{"q": "When did PRA SS1/23 take effect?", "chunk": "regulatory_summaries#pra-ss1-23-overview"}
+{"q": "How many principles does SS1/23 set out?", "chunk": "regulatory_summaries#pra-ss1-23-principles"}
+{"q": "What should a model inventory record for each model?", "chunk": "regulatory_summaries#pra-ss1-23-model-inventory-and-tiering"}
+{"q": "What must validation be independent of?", "chunk": "regulatory_summaries#pra-ss1-23-independent-validation"}
+{"q": "What triggers should be defined for re-validation?", "chunk": "regulatory_summaries#pra-ss1-23-ongoing-monitoring"}
+{"q": "Which letter replaced SR 11-7?", "chunk": "regulatory_summaries#sr-26-2-overview"}
+{"q": "What does the SR 26-2 letter ask banks to document about scope?", "chunk": "regulatory_summaries#sr-26-2-model-definition-and-scope"}
+{"q": "What governance does SR 26-2 expect for model ownership?", "chunk": "regulatory_summaries#sr-26-2-governance-expectations"}
+{"q": "What did the Basel market-risk framework move to for internal models?", "chunk": "regulatory_summaries#basel-market-risk-framework-summary"}
+{"q": "What must an audit trail show for a limit or model change?", "chunk": "regulatory_summaries#audit-trail-expectations"}
+{"q": "What should happen when automation influences a risk decision?", "chunk": "regulatory_summaries#human-oversight-of-automated-decisions"}
+{"q": "Who must be told about a failed price check, and how fast?", "chunk": "escalation_matrix#data-incidents"}
+{"q": "What happened in the stale FX fixing incident?", "chunk": "incident_logs#inc-0001-stale-fx-fixing-used-for-desk-fx-revaluation"}
+{"q": "Which incident involved a vendor tick on a cash position?", "chunk": "incident_logs#inc-0002-bad-equity-tick-on-cash-position"}
+{"q": "Which incident had a limit typo?", "chunk": "incident_logs#inc-0003-limit-typo-in-configuration"}
+{"q": "Which incident was about a duplicate trade?", "chunk": "incident_logs#inc-0006-duplicate-trade-booked-twice"}

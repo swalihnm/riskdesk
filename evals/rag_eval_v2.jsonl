@@ -1,0 +1,59 @@
+{"q": "Who needs to hear about a desk that has moved into the early-warning band, and by what time?", "chunk": "escalation_matrix#level-1-desk-head"}
+{"q": "Which manager is told on the same day that a limit has been exceeded?", "chunk": "escalation_matrix#level-2-market-risk-manager"}
+{"q": "A limit excess has run for several days. Who decides whether a temporary excess is allowed?", "chunk": "escalation_matrix#level-3-head-of-market-risk"}
+{"q": "Under what conditions does an automated investigation go to a person for resolution?", "chunk": "escalation_matrix#human-review-queue-for-agent-cases"}
+{"q": "How fast must a faulty or late quote be reported to whoever owns the feed?", "chunk": "escalation_matrix#data-incidents"}
+{"q": "How long must records of escalation decisions be kept?", "chunk": "escalation_matrix#documentation"}
+{"q": "Who owns the limits, and who owns the positions they constrain?", "chunk": "limit_policy#scope-and-ownership"}
+{"q": "What percentage of a hard limit triggers an early-warning status?", "chunk": "limit_policy#hard-limits-and-warning-levels"}
+{"q": "Can an excess be closed by raising the limit, and what must the analyst do first?", "chunk": "limit_policy#breach-response"}
+{"q": "What test must a price pass before we treat a move as real market behaviour?", "chunk": "limit_policy#data-quality-before-market-conclusions"}
+{"q": "At what level relative to baseline VaR does a hard limit count as set in error?", "chunk": "limit_policy#limit-calibration"}
+{"q": "Which scenarios feed the stress loss limit?", "chunk": "limit_policy#stress-limit"}
+{"q": "In what units is vega added up for the vega limit?", "chunk": "limit_policy#vega-limit"}
+{"q": "Is changing the lookback length of the VaR a change that needs validation?", "chunk": "limit_policy#model-and-methodology-changes"}
+{"q": "What does a 99% one-day VaR figure actually promise?", "chunk": "market_risk_reference#value-at-risk-definition"}
+{"q": "How does the historical approach revalue a book without assuming any distribution?", "chunk": "market_risk_reference#historical-simulation"}
+{"q": "Why might a normal-distribution risk estimate miss losses on a book full of options?", "chunk": "market_risk_reference#parametric-delta-normal-var"}
+{"q": "How do you generate correlated scenarios for a simulation-based VaR?", "chunk": "market_risk_reference#monte-carlo-var"}
+{"q": "What does the average of the worst tail losses measure, and why is it preferred?", "chunk": "market_risk_reference#expected-shortfall"}
+{"q": "How can a portfolio's VaR be split across positions so the parts add up to the total?", "chunk": "market_risk_reference#component-and-marginal-var"}
+{"q": "Which sensitivity captures exposure to changes in implied volatility?", "chunk": "market_risk_reference#greeks"}
+{"q": "What question does a severe scenario answer that a statistical measure cannot?", "chunk": "market_risk_reference#stress-testing"}
+{"q": "How many exceptions over 250 days put a model into the highest-concern zone?", "chunk": "market_risk_reference#var-backtesting"}
+{"q": "Which likelihood-based test checks whether the exception rate matches the confidence level?", "chunk": "market_risk_reference#kupiec-proportion-of-failures-test"}
+{"q": "Which UK authority issued the model risk statement, and when did its current version take effect?", "chunk": "regulatory_summaries#pra-ss1-23-overview"}
+{"q": "How many principles does the UK model risk statement set out, and what are they?", "chunk": "regulatory_summaries#pra-ss1-23-principles"}
+{"q": "What should a firm keep for each model, and how is its risk category decided?", "chunk": "regulatory_summaries#pra-ss1-23-model-inventory-and-tiering"}
+{"q": "Who must be separate from the model developers when a model is tested?", "chunk": "regulatory_summaries#pra-ss1-23-independent-validation"}
+{"q": "What signals should trigger a re-test of a model after it goes live?", "chunk": "regulatory_summaries#pra-ss1-23-ongoing-monitoring"}
+{"q": "Which US letter replaced the 2011 model risk guidance, and when?", "chunk": "regulatory_summaries#sr-26-2-overview"}
+{"q": "Does the new US model risk letter cover agentic AI systems?", "chunk": "regulatory_summaries#sr-26-2-model-definition-and-scope"}
+{"q": "What does the US letter expect about who owns each model?", "chunk": "regulatory_summaries#sr-26-2-governance-expectations"}
+{"q": "What does the Basel market risk standard require for backtesting internal models?", "chunk": "regulatory_summaries#basel-market-risk-framework-summary"}
+{"q": "What properties should a log of limit changes have so auditors can rely on it?", "chunk": "regulatory_summaries#audit-trail-expectations"}
+{"q": "When an automated system affects a risk decision, what must a person be able to do?", "chunk": "regulatory_summaries#human-oversight-of-automated-decisions"}
+{"q": "How does a limit warning differ from a breach in the status classification?", "chunk": "limit_policy#hard-limits-and-warning-levels"}
+{"q": "What must a desk head be told about before any action on a warning?", "chunk": "escalation_matrix#level-1-desk-head"}
+{"q": "What does the theta sensitivity describe?", "chunk": "market_risk_reference#greeks"}
+{"q": "Which approach to VaR assumes returns follow a bell curve?", "chunk": "market_risk_reference#parametric-delta-normal-var"}
+{"q": "How are the stress scenarios that feed a limit chosen?", "chunk": "limit_policy#stress-limit"}
+{"q": "Who may approve a change to a hard limit?", "chunk": "limit_policy#limit-calibration"}
+{"q": "Which team is told when a price is judged faulty?", "chunk": "escalation_matrix#data-incidents"}
+{"q": "Is changing the confidence level of a model a methodology change?", "chunk": "limit_policy#model-and-methodology-changes"}
+{"q": "What role does a second-line reviewer play when a limit changes?", "chunk": "limit_policy#limit-calibration"}
+{"q": "What happens if an early warning persists for three days?", "chunk": "escalation_matrix#level-1-desk-head"}
+{"q": "Can an agent apply a new limit value on its own?", "chunk": "limit_policy#limit-calibration"}
+{"q": "What happens to the record of who decided an escalation?", "chunk": "escalation_matrix#documentation"}
+{"q": "How are past windows of market moves used to shock a current portfolio?", "chunk": "market_risk_reference#historical-simulation"}
+{"q": "Which measure is a sum of contributions that add exactly to the total?", "chunk": "market_risk_reference#component-and-marginal-var"}
+{"q": "How do you test a model's exception count against its expected count?", "chunk": "market_risk_reference#kupiec-proportion-of-failures-test"}
+{"q": "How many exceptions are expected per 250 days at 99%?", "chunk": "market_risk_reference#var-backtesting"}
+{"q": "What controls must a live AI tool have when it touches risk decisions?", "chunk": "regulatory_summaries#human-oversight-of-automated-decisions"}
+{"q": "What should a monitoring plan's re-validation triggers be based on?", "chunk": "regulatory_summaries#pra-ss1-23-ongoing-monitoring"}
+{"q": "Is vega measured per vol point or per unit of volatility in the limit?", "chunk": "limit_policy#vega-limit"}
+{"q": "Who may allow a limit to stay exceeded temporarily?", "chunk": "escalation_matrix#level-3-head-of-market-risk"}
+{"q": "What was the outcome of incident INC-0007?", "chunk": "incident_logs#inc-0007-stress-scenario-not-refreshed"}
+{"q": "What happened in incident 12?", "chunk": "incident_logs#inc-0012-late-breach-notification-to-desk-head"}
+{"q": "Describe incident INC-0020.", "chunk": "incident_logs#inc-0020-late-breach-notification-to-desk-head"}
+{"q": "What is recorded for incident INC-0033?", "chunk": "incident_logs#inc-0033-stale-fx-fixing-used-for-desk-fx-revaluation"}
