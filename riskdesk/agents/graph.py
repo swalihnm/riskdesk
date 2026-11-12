@@ -32,6 +32,7 @@ from langgraph.types import Command, interrupt
 from riskdesk import audit
 from riskdesk.agents.drafters import TemplateDrafter, get_drafter, load_prompt, timed
 from riskdesk.agents.tool_agent import run_tool_agent
+from riskdesk.agents.challenger import compare, run_challenger
 from riskdesk.config import APPROVAL_PATH, TRACE_PATH
 from riskdesk.engine.limits import breaches as rank_breaches
 from riskdesk.guardrails import approval
@@ -78,6 +79,11 @@ class State(TypedDict, total=False):
     drafter_used: str
     tool_calls: list
     draft_fallback_reason: str | None
+    challenge_enabled: bool
+    challenge: dict | None
+    challenge_agrees: bool | None
+    challenge_reasons: list
+    challenge_tool_calls: list
     grounding: dict
     pii_entities: list
     report: dict | None
@@ -144,6 +150,31 @@ def attribution_node(state: State) -> dict:
         "tool_outputs": [att, dq, base],
     }
     out["trace"] = [_trace(state | out, "attribution", t, {"classification": cls.value, "escalate": escalate})]
+    return out
+
+
+def challenge_node(state: State) -> dict:
+    """Second agent: independently re-derives the classification. It can add an escalation, never remove one.
+
+    Disagreement, low challenger confidence, or a failed challenge all escalate to a human.
+    """
+    t = time.perf_counter()
+    if not state.get("challenge_enabled"):
+        return {}
+    ctx = {"desk": state["desk"], "metric": state["metric"]}
+    res = asyncio.run(run_challenger(SESSIONS[state["run_id"]], ctx, load_prompt("challenger")))
+    if res.get("error") or res.get("challenge") is None:
+        agrees, reasons = False, [f"challenge unavailable: {res.get('error')}"]
+        ch = None
+    else:
+        ch = res["challenge"]
+        agrees, reasons = compare({"classification": state["classification"],
+                                   "top_driver": state.get("top_driver")}, ch)
+    out = {"challenge": ch, "challenge_agrees": agrees, "challenge_reasons": reasons,
+           "challenge_tool_calls": [c["name"] for c in res.get("tool_calls", [])],
+           "escalate": bool(state.get("escalate")) or not agrees}
+    out["trace"] = [_trace(state | out, "challenge", t, {"agrees": agrees, "reasons": reasons,
+                                                       "tokens": res.get("tokens", 0)})]
     return out
 
 
@@ -346,7 +377,9 @@ def build_graph():
     g.add_node("approval_gate", approval_gate)
     g.add_edge(START, "triage")
     g.add_conditional_edges("triage", route_after_triage, {"attribution": "attribution", END: END})
-    g.add_edge("attribution", "policy_lookup")
+    g.add_node("challenge", challenge_node)
+    g.add_edge("attribution", "challenge")
+    g.add_edge("challenge", "policy_lookup")
     g.add_edge("policy_lookup", "draft_report")
     g.add_edge("draft_report", "validate")
     g.add_conditional_edges("validate", route_after_validate,
@@ -362,7 +395,14 @@ def build_graph():
 _GRAPH = None
 
 
-def _init(session: Session, drafter_kind: str | None, approval_path: str) -> tuple[dict, dict]:
+def _challenge_on(flag: bool | None) -> bool:
+    if flag is not None:
+        return bool(flag)
+    return os.environ.get("RISKDESK_CHALLENGER", "off").lower() in ("on", "1", "true")
+
+
+def _init(session: Session, drafter_kind: str | None, approval_path: str,
+          challenge: bool | None = None) -> tuple[dict, dict]:
     global _GRAPH
     if _GRAPH is None:
         _GRAPH = build_graph()
@@ -370,24 +410,29 @@ def _init(session: Session, drafter_kind: str | None, approval_path: str) -> tup
     SESSIONS[run_id] = session
     config = {"configurable": {"thread_id": run_id}}
     init = {"run_id": run_id, "drafter_kind": drafter_kind or os.environ.get("RISKDESK_DRAFTER", "template"),
-            "approval_path": approval_path, "draft_attempts": 0, "tool_outputs": [], "trace": []}
+            "approval_path": approval_path, "draft_attempts": 0, "tool_outputs": [], "trace": [],
+            "challenge_enabled": _challenge_on(challenge)}
     return init, config
 
 
-def investigate(session: Session, drafter_kind: str | None = None, approval_path: str = APPROVAL_PATH) -> dict:
-    """Run the graph until it finishes or pauses at a human gate. Returns a summary."""
-    init, config = _init(session, drafter_kind, approval_path)
+def investigate(session: Session, drafter_kind: str | None = None, approval_path: str = APPROVAL_PATH,
+                challenge: bool | None = None) -> dict:
+    """Run the graph until it finishes or pauses at a human gate. Returns a summary.
+
+    challenge=True runs the challenger agent (RISKDESK_CHALLENGER=on has the same effect). Default: off.
+    """
+    init, config = _init(session, drafter_kind, approval_path, challenge)
     final = _GRAPH.invoke(init, config)
     return _summarise(final, config)
 
 
 async def investigate_async(session: Session, drafter_kind: str | None = None,
-                            approval_path: str = APPROVAL_PATH) -> dict:
+                            approval_path: str = APPROVAL_PATH, challenge: bool | None = None) -> dict:
     """Async entry point. Many investigations can run concurrently with asyncio.gather.
 
     The graph nodes are synchronous and run in worker threads; the tool-calling drafter is async internally.
     """
-    init, config = _init(session, drafter_kind, approval_path)
+    init, config = _init(session, drafter_kind, approval_path, challenge)
     final = await _GRAPH.ainvoke(init, config)
     return _summarise(final, config)
 
@@ -414,6 +459,9 @@ def _summarise(final: dict, config: dict) -> dict:
         "approval_id": final.get("approval_id"),
         "drafter": final.get("drafter_used"),
         "tool_calls": final.get("tool_calls", []),
+        "challenge": final.get("challenge"),
+        "challenge_agrees": final.get("challenge_agrees"),
+        "challenge_reasons": final.get("challenge_reasons", []),
         "draft_fallback_reason": final.get("draft_fallback_reason"),
         "trace": final.get("trace", []),
         "config": config,
