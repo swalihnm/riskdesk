@@ -1,0 +1,766 @@
+{
+  "summary": {
+    "model": "qwen2.5:3b",
+    "prompt_version": "1.0.0",
+    "rows": 75,
+    "answered": 75,
+    "errors": 0,
+    "seconds": 487.1,
+    "agreement_with_automated_reviewer": 0.4266666666666667,
+    "kappa_vs_automated_reviewer": 0.09790209790209799,
+    "human_labelled_rows": 0,
+    "kappa_vs_human": "not computed: no human labels yet"
+  },
+  "rows": [
+    {
+      "id": "S079-correlated_fx",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S032-data_quality",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes a process for handling data incidents, but does not specify how a particular type of data issue case should be handled under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S094-multi_breach",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S045-limit_error",
+      "row_type": "positive",
+      "llm_label": "SUPPORTED",
+      "llm_reason": "The passage describes how changes to a limit should be handled, which includes a written proposal, rationale, second-line review and approval by the Head of Market Risk. This aligns with the claim that a limit error case should be handled '",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S088-multi_breach",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S097-correlated_fx",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S083-ambiguous",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S067-correlated_fx",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S003-limit_error",
+      "row_type": "positive",
+      "llm_label": "SUPPORTED",
+      "llm_reason": "The passage describes how changes to a limit should be handled, which includes a written proposal, rationale, second-line review and approval by the Head of Market Risk. This aligns with the claim that a limit error case should be handled '",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S059-ambiguous",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S031-correlated_fx",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S093-limit_error",
+      "row_type": "positive",
+      "llm_label": "SUPPORTED",
+      "llm_reason": "The passage describes how changes to a limit should be handled, which includes a written proposal, rationale, second-line review and approval by the Head of Market Risk. This aligns with the claim that a limit error case should be handled '",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S006-single_position_vol",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S020-data_quality",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes a process for handling data incidents, but does not specify how a particular type of data issue case should be handled under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S014-data_quality",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes how to handle data incidents (failed jump check or stale price), but does not specify how a data issue case should be handled under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S047-ambiguous",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S060-single_position_vol",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S089-ambiguous",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S048-single_position_vol",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S069-limit_error",
+      "row_type": "positive",
+      "llm_label": "SUPPORTED",
+      "llm_reason": "The passage describes how changes to a limit should be handled, which includes a written proposal, rationale, second-line review and approval by the Head of Market Risk. This aligns with the claim that a limit error case should be handled '",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S013-correlated_fx",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S073-correlated_fx",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S082-multi_breach",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S001-correlated_fx",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S027-limit_error",
+      "row_type": "positive",
+      "llm_label": "SUPPORTED",
+      "llm_reason": "The passage describes how changes to a limit should be handled, which includes a written proposal, rationale, second-line review and approval by the Head of Market Risk. This aligns with the claim that a limit error case should be handled '",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S052-multi_breach",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S035-ambiguous",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S023-ambiguous",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S049-correlated_fx",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S086-data_quality",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes how to handle data incidents (failed jump check or stale price), but does not specify how a data issue case should be handled under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S009-limit_error",
+      "row_type": "positive",
+      "llm_label": "SUPPORTED",
+      "llm_reason": "The passage describes how changes to a limit should be handled, which includes a written proposal, rationale, second-line review and approval by the Head of Market Risk. This aligns with the claim that a limit error case should be handled '",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S017-ambiguous",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S056-data_quality",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes how to handle data incidents (failed jump check or stale price), but does not specify how a data issue case should be handled under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S016-multi_breach",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S066-single_position_vol",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S000-single_position_vol",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S064-multi_breach",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S099-limit_error",
+      "row_type": "positive",
+      "llm_label": "SUPPORTED",
+      "llm_reason": "The passage describes how changes to a limit should be handled, which includes a written proposal, rationale, second-line review and approval by the Head of Market Risk. This aligns with the claim that a limit error case should be handled '",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S071-ambiguous",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S062-data_quality",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes how to handle data incidents (failed jump check or stale price), but does not specify how a data issue case should be handled under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S010-multi_breach",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S055-correlated_fx",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S090-single_position_vol",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S018-single_position_vol",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S070-multi_breach",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S012-single_position_vol",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S034-multi_breach",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S043-correlated_fx",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S040-multi_breach",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S095-ambiguous",
+      "row_type": "positive",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage discusses breach response and market risk analysis, but does not provide specific guidance on how to handle market move cases under the cited policy section.",
+      "error": null,
+      "automated_label": "SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S093-limit_error-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes a different kind of incident (data incidents) and does not provide specific guidance on how to handle a limit error case.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "NOT_SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S070-multi_breach-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and the procedures for changes to those limits, but does not specify how a breach case should be handled.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S006-single_position_vol-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S027-limit_error-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes a different kind of data incident (a failed jump check or a stale price) and does not provide specific guidance on how to handle a limit error case.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "NOT_SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S069-limit_error-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes a different kind of data incident (a failed jump check or a stale price) and does not provide specific guidance on how to handle a limit error case.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "NOT_SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S032-data_quality-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes a process for handling breach cases, but does not specify how a data issue case should be handled under the cited policy section.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S001-correlated_fx-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S035-ambiguous-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S031-correlated_fx-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S059-ambiguous-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S060-single_position_vol-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S088-multi_breach-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S073-correlated_fx-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S012-single_position_vol-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S079-correlated_fx-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S099-limit_error-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes a different kind of data incident (a failed jump check or a stale price) and does not provide specific guidance on how to handle a limit error case.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "NOT_SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S071-ambiguous-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S064-multi_breach-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S082-multi_breach-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S090-single_position_vol-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S010-multi_breach-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S047-ambiguous-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S017-ambiguous-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S055-correlated_fx-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    },
+    {
+      "id": "S097-correlated_fx-neg",
+      "row_type": "negative_control",
+      "llm_label": "NOT_SUPPORTED",
+      "llm_reason": "The passage describes market risk limits and calibration errors, but does not provide specific guidance on how to handle market move cases.",
+      "error": null,
+      "automated_label": "NOT_SUPPORTED",
+      "judge_label": "SUPPORTED",
+      "human_label": ""
+    }
+  ]
+}
