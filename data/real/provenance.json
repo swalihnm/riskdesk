@@ -1,0 +1,46 @@
+{
+  "fetched_at_utc": "2026-11-12T14:35:10+00:00",
+  "start": "2021-11-01",
+  "last_price_date": "2026-11-11",
+  "equity_tickers": [
+    "SPY",
+    "QQQ",
+    "XLF",
+    "XLE",
+    "XLV",
+    "IWM"
+  ],
+  "fx_pairs": [
+    "EURUSD",
+    "GBPUSD",
+    "AUDUSD"
+  ],
+  "sources": {
+    "equities": "Yahoo Finance via yfinance (unofficial)",
+    "fx": "ECB reference rates: USD, GBP and AUD per EUR; GBPUSD and AUDUSD derived by cross",
+    "dollar_rate": "FRED DGS1 (1-year Treasury, percent)",
+    "foreign_rates": {
+      "EURUSD": "FRED IR3TIB01EZM156N (3-month interbank, monthly)",
+      "GBPUSD": "FRED IR3TIB01GBM156N (3-month interbank, monthly)",
+      "AUDUSD": "FRED IR3TIB01AUM156N (3-month interbank, monthly)"
+    },
+    "vix_cross_check": "CBOE VIX_History.csv (not used in calculations)"
+  },
+  "rd": 0.0438,
+  "rd_date": "2026-11-09",
+  "rf": {
+    "EURUSD": 0.020277272727,
+    "GBPUSD": 0.0371,
+    "AUDUSD": 0.0451
+  },
+  "rf_dates": {
+    "EURUSD": "2026-01-01",
+    "GBPUSD": "2026-01-01",
+    "AUDUSD": "2026-08-01"
+  },
+  "vix_last": {
+    "date": "11/11/2026",
+    "close": 17.49
+  },
+  "volatility_proxy": "21-day realised volatility, annualised; factor is its daily change in vol points"
+}
