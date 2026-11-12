@@ -85,5 +85,73 @@ def _chart(runs: list[dict]) -> None:
     plt.close(fig)
 
 
+
+
+def run_health(path: str = TRACE_PATH) -> dict:
+    """Health of the investigations recorded in the trace file, grouped by run.
+
+    Reports: how many runs, which drafter produced each note, why drafts fell back, how often the challenger
+    disagreed, how often a note failed the grounding check, token use, and run-time percentiles.
+    """
+    from collections import Counter
+
+    if not os.path.exists(path):
+        return {"runs": 0}
+    records = []
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                records.append(json.loads(line))
+    if not records:
+        return {"runs": 0}
+    runs = defaultdict(float)
+    drafters, reasons, prompts = Counter(), Counter(), Counter()
+    challenges = disagreements = grounding_fail = tokens = 0
+    for r in records:
+        runs[r.get("run_id")] += float(r.get("latency_ms", 0.0) or 0.0)
+        tokens += int(r.get("tokens", 0) or 0)
+        if r.get("prompt_version"):
+            prompts[r["prompt_version"]] += 1
+        if r["node"] == "draft_report":
+            drafters[r.get("drafter") or "none"] += 1
+            if r.get("fallback_reason"):
+                reasons[str(r["fallback_reason"]).split(":")[0]] += 1
+        if r["node"] == "challenge":
+            challenges += 1
+            if r.get("agrees") is False:
+                disagreements += 1
+        if r["node"] == "validate" and r.get("grounding_ok") is False:
+            grounding_fail += 1
+    totals = sorted(runs.values())
+
+    def pct(p: float) -> float:
+        return totals[min(int(p * len(totals)), len(totals) - 1)]
+
+    return {
+        "runs": len(runs),
+        "drafters": dict(drafters),
+        "fallback_reasons": dict(reasons),
+        "prompt_versions": dict(prompts),
+        "challenges": challenges,
+        "challenger_disagreements": disagreements,
+        "grounding_failures": grounding_fail,
+        "tokens_total": tokens,
+        "tokens_per_run": tokens / len(runs),
+        "run_latency_ms_p50": pct(0.50),
+        "run_latency_ms_p95": pct(0.95),
+    }
+
+
+def eval_series() -> list[dict]:
+    """One row per full eval run, for the drift chart."""
+    out = []
+    for r in history():
+        s = r["summary"]
+        out.append({"run_at": r["run_at"], "drafter": r.get("drafter_env"), "prompt": r["prompt"]["version"],
+                    "breach_rate": s["injection_breach_rate"], "root_cause": s["root_cause_accuracy"],
+                    "completion": s["task_completion"], "unsupported_shipped": s["unsupported_numbers_shipped"]})
+    return out
+
+
 if __name__ == "__main__":
     print(write_report())

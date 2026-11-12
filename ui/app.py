@@ -15,6 +15,7 @@ from riskdesk import audit  # noqa: E402
 from riskdesk.agents import graph  # noqa: E402
 from riskdesk.config import APPROVAL_PATH  # noqa: E402
 from riskdesk.guardrails import approval  # noqa: E402
+from riskdesk import monitoring  # noqa: E402
 from riskdesk.tools import Session, limit_status  # noqa: E402
 
 st.set_page_config(page_title="RiskDesk", layout="wide")
@@ -29,7 +30,7 @@ s = base_session()
 st.title("RiskDesk")
 st.caption("Synthetic book. Python computes every number; agents explain and draft. Nothing is applied without a named reviewer.")
 
-tab_limits, tab_invest, tab_queue = st.tabs(["Limits", "Investigate", "Approval queue"])
+tab_limits, tab_invest, tab_queue, tab_monitor = st.tabs(["Limits", "Investigate", "Approval queue", "Monitoring"])
 
 with tab_limits:
     rows = limit_status(s)
@@ -71,3 +72,36 @@ with tab_queue:
                     st.rerun()
                 except Exception as e:
                     st.error(str(e))
+
+with tab_monitor:
+    st.subheader("Run health (from the trace file)")
+    health = monitoring.run_health()
+    if not health.get("runs"):
+        st.info("No investigations recorded yet.")
+    else:
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("Runs recorded", health["runs"])
+        c2.metric("Run latency p50 (ms)", f"{health['run_latency_ms_p50']:,.0f}")
+        c3.metric("Run latency p95 (ms)", f"{health['run_latency_ms_p95']:,.0f}")
+        c4.metric("Tokens per run", f"{health['tokens_per_run']:,.1f}")
+        c5, c6, c7 = st.columns(3)
+        c5.metric("Challenger disagreements", f"{health['challenger_disagreements']} of {health['challenges']}")
+        c6.metric("Notes blocked by grounding", health["grounding_failures"])
+        c7.metric("Prompt versions in use", ", ".join(sorted(health["prompt_versions"])))
+        st.write("Notes by drafter")
+        st.bar_chart(pd.Series(health["drafters"], name="notes"))
+        if health["fallback_reasons"]:
+            st.write("Why notes fell back to the template")
+            st.bar_chart(pd.Series(health["fallback_reasons"], name="count"))
+
+    st.subheader("Eval drift (one row per full eval run)")
+    series = monitoring.eval_series()
+    if not series:
+        st.info("No full eval runs recorded yet.")
+    else:
+        df = pd.DataFrame(series)
+        st.dataframe(df, width="stretch")
+        if len(df) >= 2:
+            st.line_chart(df.set_index("run_at")[["breach_rate", "root_cause", "completion"]])
+        else:
+            st.caption("A drift chart needs at least two runs. This table grows with each scheduled run.")
