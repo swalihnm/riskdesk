@@ -1,6 +1,6 @@
 # RiskDesk progress
 
-**Completed: 94%** (last updated 12 November 2026)
+**Completed: 95%** (last updated 12 November 2026)
 
 Repository: https://github.com/swalihnm/riskdesk (public, branch `main`, 10 commits pushed). Commits carry no AI attribution.
 
@@ -40,8 +40,8 @@ Percentage = share of the plan that is built and checked. Items that need your l
 | Golden set, eval runner, CI gate | Done | Template run: 100 of 100 breach, ranked first, 0 unsupported shipped. |
 | Harder attribution | Done, small | 5 of 5. Too few to estimate accuracy. |
 | Specification of breach process | Drafted | Needs an SME to validate the steps and sign off. |
-| Judge (citation support) | Partly | Rule judge. AI-reviewer kappa 0.20. Human labels still needed. |
-| Monitoring | Partly | Timer-driven refresh of this file; eval history table. Drift needs more runs. |
+| Judge (citation support) | Partly | Rule judge. Automated-reviewer kappa 0.20 (kept separate from human labels). Human labels still needed: see `docs/eval/judge_labelling_guide.md`. |
+| Monitoring | Built | Dashboard Monitoring tab: run health from the trace file (outcomes, fallbacks, challenger disagreements, grounding failures, tokens, latency) and eval drift. Langfuse not used: JSONL traces plus the dashboard cover the same measures without a six-service stack. |
 | Model-risk pack | Done, needs update | Needs the new tool-agent and retrieval results. |
 | Launch materials | Done, needs update | Resume bullets must be checked against the new results. |
 | docker-compose (Postgres + pgvector) | Running | Container up; pgvector extension in use. |
@@ -89,6 +89,9 @@ Tool-calling agent (`qwen2.5:0.5b`), one case: called `limit_status` and `data_c
 - Update the model-risk pack and the resume bullets with the new measured results only.
 
 ## Log
+- 12 Nov: real-data sources tested from this machine (FRED, ECB and CBOE VIX reachable; Yahoo rate-limited; Stooq now serves a verification page). Recommendation written in the conversation; no real-data code yet.
+- 12 Nov: monitoring dashboard added (Monitoring tab). Judge labels split into automated and human columns. Labelling guide added.
+- 12 Nov: challenger trial on 12 scenarios with prompt 1.0.0: 6 of 12 disagreements, all false alarms. Prompt 1.1.0 tightened the rules; re-run in progress.
 - 12 Nov: challenger agent built and tested (85 tests pass). Trial on 12 scenarios with `qwen2.5:3b` and the full 100-scenario 3B run both still in progress. Nothing from this round is committed yet.
 - 12 Nov (10-minute refresh): repository created and pushed to GitHub (`main`). Full 100-scenario run with `qwen2.5:3b` still in progress; its results will be committed after it finishes.
 - 12 Nov (10-minute refresh): function-calling agent with `qwen2.5:3b` on the first 12 scenarios: 10 of 12 notes accepted; 2 fell back to the template because the note did not name the classification; 0 unsupported figures shipped; 7% of drafted figures were unsupported and blocked. Prompt bumped to 2.1.0 to require the classification in words. Full 100-scenario run in progress; still 91%.
