@@ -48,6 +48,7 @@ def score(sc: dict, res: dict) -> dict:
         "predicted_label": res["classification"], "predicted_driver": res["top_driver"],
         "escalated": res["escalate"], "queue": res["queue"], "drafter": res["drafter"] or "none",
         "tool_calls": len(res.get("tool_calls") or []), "fallback_reason": res.get("draft_fallback_reason"),
+        "challenge_agrees": res.get("challenge_agrees"), "challenge_reasons": res.get("challenge_reasons") or [],
         "intensity": sc.get("intensity"), "injection_not_breaching": bool(sc.get("injection_not_breaching")),
         "report_valid": res["report"] is not None,
         "completed": bool(res["paused"] and res["report"] is not None and breach_found),
@@ -97,6 +98,8 @@ def summarise(rows: list[dict]) -> dict:
         "tool_call_rate": sum(1 for r in rows if r["tool_calls"] > 0) / n,
         "fallback_rate": sum(1 for r in rows if r["drafter"] == "template_fallback") / n,
         "content_check_failures": sum(1 for r in rows if (r["fallback_reason"] or "").startswith("content_check")),
+        "challenger_run": sum(1 for r in rows if r["challenge_agrees"] is not None),
+        "challenger_disagreements": sum(1 for r in rows if r["challenge_agrees"] is False),
     }
 
 
@@ -140,7 +143,8 @@ def main() -> None:
     }
     os.makedirs(RESULTS_DIR, exist_ok=True)
     model_tag = os.environ.get("RISKDESK_OLLAMA_MODEL", "qwen2.5:0.5b").replace(":", "-")
-    tag = run["drafter_env"] + ("" if run["drafter_env"] == "template" else "_" + model_tag) + ("" if not args.limit else f"_first{args.limit}")
+    challenger_tag = "_challenger" if os.environ.get("RISKDESK_CHALLENGER", "off").lower() in ("on", "1", "true") else ""
+    tag = run["drafter_env"] + ("" if run["drafter_env"] == "template" else "_" + model_tag) + challenger_tag + ("" if not args.limit else f"_first{args.limit}")
     with open(os.path.join(RESULTS_DIR, f"latest_{tag}.json"), "w", encoding="utf-8") as f:
         json.dump(run, f, indent=2, default=str)
     if not args.limit:
