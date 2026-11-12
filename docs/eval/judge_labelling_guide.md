@@ -16,7 +16,7 @@ Label all 75 rows. Some rows are negative controls: the passage is deliberately 
 ## Rules of thumb
 - Support means the passage governs handling of this case type. A passage that mentions a related word is not enough.
 - "Data" or "limit" appearing in the passage does not make it support a data issue or a limit error.
-- If you are unsure, choose `NOT_SUPPORTED` and note why in your head; disagreements are informative.
+- If you are unsure, choose `NOT_SUPPORTED`. Disagreements with the judge are informative, so do not change a label just to match it.
 
 ## What the file contains
 - `automated_label` and `automated_reviewer` hold an automated reviewer's labels. They are not human labels and are kept separately on purpose.
