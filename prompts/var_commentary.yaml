@@ -1,0 +1,10 @@
+version: "1.0.0"
+name: var_commentary
+owner: market-risk-ai
+purpose: One-paragraph daily VaR commentary for the desk head. Numbers must come from FACTS only.
+changelog:
+  - "1.0.0: first version."
+template: |
+  Write a two-sentence daily VaR commentary for the desk head.
+  Use only the figures in FACTS. Do not compute or estimate any figure.
+  FACTS: {facts}

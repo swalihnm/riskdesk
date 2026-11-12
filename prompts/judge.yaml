@@ -1,0 +1,11 @@
+version: "0.1.0"
+name: judge
+owner: market-risk-ai
+purpose: Rubric for an LLM judge of citation support. Not yet used in CI; must be validated on 50 human labels first.
+changelog:
+  - "0.1.0: rubric drafted. Kappa against human labels not yet measured."
+template: |
+  You are checking whether a cited policy passage supports a sentence in a breach note.
+  Answer SUPPORTED or NOT_SUPPORTED, then give one sentence of reason.
+  SENTENCE: {claim}
+  PASSAGE: {passage}

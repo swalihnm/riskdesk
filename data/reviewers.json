@@ -1,0 +1,8 @@
+{
+  "_comment": "Named people allowed to approve or reject queued items. Replace these role placeholders with real named reviewers before any use. Agents and the system are refused regardless of this list.",
+  "reviewers": [
+    "Head of Market Risk",
+    "Market Risk Manager",
+    "Desk Head"
+  ]
+}
