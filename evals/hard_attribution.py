@@ -22,7 +22,7 @@ from evals.run_eval import EVAL_APPROVALS  # noqa: E402
 from riskdesk.agents.graph import investigate  # noqa: E402
 from riskdesk.engine.book import positions_by_desk  # noqa: E402
 from riskdesk.engine.limits import check_limits  # noqa: E402
-from riskdesk.engine.market import FX, apply_regime_shock  # noqa: E402
+from riskdesk.engine.market import apply_regime_shock  # noqa: E402
 from riskdesk.engine.risk import component_var_by_underlying  # noqa: E402
 from riskdesk.tools import Session  # noqa: E402
 
@@ -31,12 +31,12 @@ RESULTS = os.path.join(ROOT, "evals", "results", "hard_attribution.json")
 
 def ranked_exposures(base: Session, desk: str) -> list[str]:
     comp = component_var_by_underlying(positions_by_desk(base.book, desk), base.market)
-    names = set(base.market.vol_names) | set(FX)
+    names = set(base.market.vol_names) | set(base.market.rf)
     return [u for u in comp if u in names and comp[u] > 0]
 
 
 def make(base: Session, desk: str, u2: str, k: float) -> Session:
-    if u2 in FX:
+    if u2 in base.market.rf:
         m = apply_regime_shock(base.market, [u2], last_n=20, mult=1 + 4.0 * k)
     else:
         m = apply_regime_shock(base.market, [u2], last_n=20, mult=1 + 3.0 * k, vol_jump_pts=15.0 * k)

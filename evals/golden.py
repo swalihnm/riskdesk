@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np  # noqa: E402
 from riskdesk.engine.limits import _round_up  # noqa: E402
-from riskdesk.engine.market import EQUITIES, FX, apply_bad_tick, apply_regime_shock  # noqa: E402
+from riskdesk.engine.market import apply_bad_tick, apply_regime_shock  # noqa: E402
 from riskdesk.engine.risk import component_var_by_underlying  # noqa: E402
 from riskdesk.engine.book import positions_by_desk  # noqa: E402
 from riskdesk.tools import Session  # noqa: E402
@@ -47,8 +47,8 @@ def _largest_exposure(session: Session, desk: str, names: list[str]) -> str | No
 
 def build_scenario(kind: str, i: int, base: Session, rng: random.Random, k: float = 1.0) -> dict:
     """k scales the injection size. generate() raises k until the intended desk actually breaches."""
-    eq = list(EQUITIES)
-    fx = list(FX)
+    eq = list(base.market.vol_names)
+    fx = list(base.market.rf)
     if kind == "single_position_vol":
         desk = rng.choice(["DESK_EQ", "DESK_VOL"])
         u = _largest_exposure(base, desk, list(base.market.vol_names)) or rng.choice(eq)

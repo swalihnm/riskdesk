@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import numpy as np
 
-from riskdesk.engine.instruments import RATE_DOMESTIC, Position
-from riskdesk.engine.market import EQUITIES, FX, Market
+from riskdesk.engine.instruments import Position
+from riskdesk.engine.market import Market
 
 DESKS = ["DESK_EQ", "DESK_VOL", "DESK_FX"]
 BOOK_SEED = 7
@@ -13,8 +13,8 @@ BOOK_SEED = 7
 
 def build_book(market: Market, seed: int = BOOK_SEED) -> list[Position]:
     rng = np.random.default_rng(seed)
-    eq_names = list(EQUITIES)
-    fx_names = list(FX)
+    eq_names = list(market.vol_names)  # equity underlyings
+    fx_names = list(market.rf)         # FX underlyings (foreign rate per pair)
     positions: list[Position] = []
 
     # 6 cash equity positions: 3 on DESK_EQ, 3 on DESK_VOL
@@ -48,9 +48,9 @@ def build_book(market: Market, seed: int = BOOK_SEED) -> list[Position]:
     fwd_expiries = [0.25, 0.5, 1.0]
     for n in range(12):
         u = fx_names[n % 3]
-        spot, rf = FX[u]
+        rf = market.rf[u]
         T = float(fwd_expiries[int(rng.integers(0, 3))])
-        fwd = market.spots[u] * np.exp((RATE_DOMESTIC - rf) * T)
+        fwd = market.spots[u] * np.exp((market.rd - rf) * T)
         notional = float(rng.integers(1, 6)) * 1_000_000.0 * (1 if rng.random() < 0.6 else -1)
         positions.append(Position(
             id=f"FWD-{n:02d}-{u}",

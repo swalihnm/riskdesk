@@ -21,7 +21,7 @@ NAMED_SCENARIOS = [
     {"name": "Rate and FX shock (2022-style analogue)", "kind": "hypothetical",
      "eq_shock": -0.12, "fx_shock": -0.10, "vol_pts": 8.0},
     {"name": "EUR/USD -10%", "kind": "hypothetical",
-     "eq_shock": 0.0, "fx_shock": -0.10, "vol_pts": 0.0, "only": ["FX_EURUSD"]},
+     "eq_shock": 0.0, "fx_shock": -0.10, "vol_pts": 0.0, "only_first_fx": True},
     {"name": "Implied vol +15 pts", "kind": "hypothetical",
      "eq_shock": 0.0, "fx_shock": 0.0, "vol_pts": 15.0},
 ]
@@ -30,14 +30,14 @@ NAMED_SCENARIOS = [
 def _shock_vectors(market: Market, scen: dict):
     rets = np.zeros((1, len(market.spot_names)))
     dvol = np.zeros((1, len(market.vol_names)))
-    only = scen.get("only")
+    only = [list(market.rf)[0]] if scen.get("only_first_fx") else None
     for i, n in enumerate(market.spot_names):
         if only is not None:
             if n in only:
                 rets[0, i] = np.log(1 + scen.get("fx_shock", 0.0))
-        elif n.startswith("EQ_"):
+        elif n in market.vol_names:  # equities
             rets[0, i] = np.log(1 + scen.get("eq_shock", 0.0))
-        elif n.startswith("FX_"):
+        elif n in market.rf:  # FX pairs
             rets[0, i] = np.log(1 + scen.get("fx_shock", 0.0))
     dvol[:, :] = scen.get("vol_pts", 0.0)
     return rets, dvol
@@ -45,7 +45,7 @@ def _shock_vectors(market: Market, scen: dict):
 
 def historical_windows(market: Market, n_worst: int = 3, horizon: int = 10) -> list[dict]:
     """Worst cumulative equity-block moves over `horizon` days in the full history."""
-    eq_idx = [i for i, n in enumerate(market.spot_names) if n.startswith("EQ_")]
+    eq_idx = [i for i, n in enumerate(market.spot_names) if n in market.vol_names]
     eq_log = market.rets[:, eq_idx].mean(axis=1)
     csum = np.concatenate([[0.0], np.cumsum(eq_log)])
     window_ret = csum[horizon:] - csum[:-horizon]

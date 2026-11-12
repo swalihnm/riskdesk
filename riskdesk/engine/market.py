@@ -117,6 +117,18 @@ def _snapshot(spot_names, vol_names, rets, dvol, rd=0.04) -> Market:
 
 
 def load_market(cache_path: str | None = None, n_days: int = N_DAYS, seed: int = SEED) -> Market:
+    """The market the engine uses. Real data by default (data/real/, see riskdesk/engine/realdata.py).
+
+    Set RISKDESK_DATA=synthetic to use the seeded synthetic market instead. cache_path applies only to the
+    synthetic market.
+    """
+    if os.environ.get("RISKDESK_DATA", "real").strip().lower() == "synthetic":
+        return load_synthetic(cache_path, n_days, seed)
+    from riskdesk.engine.realdata import load_market as load_real_market
+    return load_real_market()
+
+
+def load_synthetic(cache_path: str | None = None, n_days: int = N_DAYS, seed: int = SEED) -> Market:
     """Load the cached history if present, otherwise generate it and cache it to Parquet."""
     import pandas as pd
 
