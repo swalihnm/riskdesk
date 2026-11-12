@@ -27,17 +27,21 @@ Optional local LLM drafter (free, slow on CPU): install [Ollama](https://ollama.
 | Stress (named analogues and worst historical windows, both directions) | `riskdesk/engine/stress.py` |
 | Limit framework (hard limit and 80% warning) | `riskdesk/engine/limits.py` |
 | Kupiec test and Basel traffic light | `riskdesk/engine/backtest.py` |
+| P&L attribution test (MAR32.42: Spearman and KS, green, amber, red) | `riskdesk/engine/pla.py` |
 | Breach-investigation LangGraph, with human gates | `riskdesk/agents/graph.py` |
+| Challenger agent: an independent second review that can add escalations, never remove them | `riskdesk/agents/challenger.py` |
+| Function-calling drafter (local model picks engine tools; figures must come from tool results) | `riskdesk/agents/tool_agent.py` |
 | Daily VaR commentary workflow | `riskdesk/agents/commentary.py` |
 | Grounding gate, PII filter, injection screen, schemas, approval gate | `riskdesk/guardrails/` |
-| Hybrid retrieval (BM25 plus character vectors) | `riskdesk/rag/index.py` |
+| Hybrid retrieval (BM25 plus sentence embeddings) and a pgvector backend | `riskdesk/rag/index.py`, `riskdesk/rag/pgstore.py` |
 | MCP server (`riskdesk-mcp`) | `riskdesk/mcp/server.py` |
-| Golden set, eval runner, CI gate, judge calibration | `evals/` |
+| Golden set, eval runner, CI gate, LLM judge and judge agreement check | `evals/` |
+| Monitoring tab: run health and eval drift | `riskdesk/monitoring.py`, `ui/app.py` |
 | Versioned prompts | `prompts/` |
 | Model-risk pack | `docs/mrm/` |
 
 ## Results so far (synthetic data)
-- Unit tests: 70 passing. MCP server tested over stdio with a live client. Streamlit app run through its test harness.
+- Unit tests: 95 passing. MCP server tested over stdio with a live client. Streamlit app run through its test harness.
 - Golden set, template drafter, 100 scenarios: 100% breach the intended desk and rank it first; root-cause accuracy 100% over 50 cases; task completion 100% of breached cases; 0 unsupported numbers shipped. These cases shock the largest exposure, so they are easy.
 - Harder attribution check (`evals/hard_attribution.py`): the shock hits a non-largest exposure, so the agent must not pick the largest. 5 of 5 correct. Five cases is too few for an accuracy estimate.
 - Local 0.5B model as drafter, first 12 scenarios: 64% of drafted numbers unsupported, all blocked by the gate. A 100-scenario run is in progress; see [docs/mrm/eval_history.md](docs/mrm/eval_history.md) when it finishes.

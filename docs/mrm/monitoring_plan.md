@@ -11,6 +11,9 @@
 | Fallback rate to template | Run records (`drafter` field) | Per run | Above 20% of runs |
 | Audit chain integrity | `audit.verify()` | Daily, and in the UI | Any failure is a stop |
 
+## Dashboard
+The Monitoring tab in `ui/app.py` shows, per run: drafter outcomes, fallback reasons, challenger disagreements, grounding failures, tokens and run-time percentiles (from `data/traces/traces.jsonl`), and the eval drift table (from `evals/results/history.jsonl`). It is built from files, so it needs no service.
+
 ## Drift
 - Eval history is appended to `evals/results/history.jsonl` on each full run. `riskdesk/monitoring.py` writes the table and the drift chart.
 - A weekly scheduled run of `evals/run_eval.py` is needed to produce a trend. Until then the chart does not exist.
