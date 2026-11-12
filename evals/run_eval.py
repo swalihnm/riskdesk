@@ -143,7 +143,9 @@ def main() -> None:
     }
     os.makedirs(RESULTS_DIR, exist_ok=True)
     model_tag = os.environ.get("RISKDESK_OLLAMA_MODEL", "qwen2.5:0.5b").replace(":", "-")
-    challenger_tag = "_challenger" if os.environ.get("RISKDESK_CHALLENGER", "off").lower() in ("on", "1", "true") else ""
+    challenger_tag = ""
+    if os.environ.get("RISKDESK_CHALLENGER", "off").lower() in ("on", "1", "true"):
+        challenger_tag = "_challenger-p" + load_prompt("challenger")["version"]
     tag = run["drafter_env"] + ("" if run["drafter_env"] == "template" else "_" + model_tag) + challenger_tag + ("" if not args.limit else f"_first{args.limit}")
     with open(os.path.join(RESULTS_DIR, f"latest_{tag}.json"), "w", encoding="utf-8") as f:
         json.dump(run, f, indent=2, default=str)
