@@ -6,6 +6,9 @@ A free market-risk workbench with agents built in. A Python engine computes VaR,
 
 All data is synthetic. Nothing calls a paid API. Progress and results: [PROGRESS.md](PROGRESS.md) and [docs/mrm/](docs/mrm/).
 
+## Data
+The engine uses real market data by default: five years of closes for six equity ETFs (Yahoo Finance), EUR cross rates for three currency pairs (ECB), and FRED rates. The stored copy in `data/real/` lets the project run offline. Sources, provenance and assumptions are in [docs/data/real_data.md](docs/data/real_data.md). Set `RISKDESK_DATA=synthetic` to use the seeded synthetic market, which the earlier results were produced from.
+
 ## Quick start
 ```bash
 pip install -r requirements.txt
