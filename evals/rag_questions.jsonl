@@ -20,7 +20,7 @@
 {"q": "How do component VaR contributions add up?", "chunk": "market_risk_reference#component-and-marginal-var"}
 {"q": "Which Greek measures the sensitivity to implied volatility?", "chunk": "market_risk_reference#greeks"}
 {"q": "What does a stress test answer that VaR does not?", "chunk": "market_risk_reference#stress-testing"}
-{"q": "How many exceptions put a 250-day 99% backtest in the yellow zone?", "chunk": "market_risk_reference#var-backtesting"}
+{"q": "How many exceptions put a 250-day 99% backtest in the amber zone?", "chunk": "market_risk_reference#var-backtesting"}
 {"q": "What distribution does the Kupiec statistic follow?", "chunk": "market_risk_reference#kupiec-proportion-of-failures-test"}
 {"q": "When did PRA SS1/23 take effect?", "chunk": "regulatory_summaries#pra-ss1-23-overview"}
 {"q": "How many principles does SS1/23 set out?", "chunk": "regulatory_summaries#pra-ss1-23-principles"}
