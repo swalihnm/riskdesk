@@ -82,6 +82,18 @@ Caveat: the same author wrote the questions and the knowledge base. The earlier 
 ### 4.6 Harder attribution check
 `evals/hard_attribution.py` shocks a non-largest exposure, so the largest existing exposure is a distractor. The agent named the shocked underlying in 5 of 5 cases and never named the distractor. Five cases is too few to estimate accuracy: the other non-largest exposures cannot breach their desk within the tested injection range. A fair estimate needs more cases, which need a larger injection range or a larger book.
 
+### 4.7 P&L attribution test (MAR32.42)
+Hypothetical P&L (full revaluation) compared with risk-theoretical P&L (this project's linear sensitivities) over the same 250 days, per desk:
+
+| Desk | Spearman | KS statistic | Zone |
+| --- | --- | --- | --- |
+| DESK_EQ | 1.000 | 0.016 | green |
+| DESK_VOL | 1.000 | 0.016 | green |
+| DESK_FX | 1.000 | 0.012 | green |
+| Cash-only control | 0.99999 | 0.012 | green |
+
+Reading: on one-day moves of about 1%, the linear model explains the full revaluation closely, including for the option desks. The test therefore does not discriminate between these desks. It would become informative on larger or gap moves, which this synthetic history contains only in its two stress episodes. The risk-theoretical model is this project's linear approximation, not a bank's model, so the zones are not a regulatory result.
+
 ## 5. Ongoing monitoring
 See `monitoring_plan.md`. A single eval run is recorded. Drift cannot be assessed until the scheduled weekly runs have produced at least two points.
 
